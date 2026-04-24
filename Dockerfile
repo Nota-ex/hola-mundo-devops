@@ -1,0 +1,17 @@
+# Imagen base
+FROM python:3.10-slim
+
+# Directorio de trabajo
+WORKDIR /app
+
+# Copiar archivos
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+# Puerto
+EXPOSE 8080
+
+# Comando de ejecución
+CMD ["python", "app.py"]
